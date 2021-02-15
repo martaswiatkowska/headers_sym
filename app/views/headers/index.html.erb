@@ -1,7 +1,14 @@
-<% @headers.each do |h| %>
-  <li>
-    <div> 
-      <%= h.title %>
+<div>
+  <% @headers.each_cons(2) do |p, c| %>
+    <% if p.heading_level == 0 %>
+      <% @parent = p %>
+      <div>
+          <%= @parent.title %>
+      </div>
+    <%end%>
+    <div style="margin-left: <%= c.heading_level * 20%>px;">
+      <%= c.title %>
     </div>
-  </li>
-<% end %>
+  <% end %>
+
+</div>

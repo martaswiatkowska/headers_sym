@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class HeadersController < ActionController::Base
+  
   def index
-    @headers = Header.all
+    @headers = Header.order("id ASC")
   end
 end
